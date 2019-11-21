@@ -7,13 +7,6 @@ public class Player : MonoBehaviour
     [SerializeField] float speed = 5f;
     private Vector3 direction = Vector3.zero;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         DoMovement();
