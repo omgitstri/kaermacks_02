@@ -41,6 +41,11 @@ public class Grid : MonoBehaviour
             GetComponentInChildren<Renderer>().material.SetColor("_BaseColor", Color.white);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        RemoveSelf();
+    }
+
     private void OnMouseEnter()
     {
         GetComponentInChildren<Renderer>().material.SetColor("_BaseColor", Color.green);
