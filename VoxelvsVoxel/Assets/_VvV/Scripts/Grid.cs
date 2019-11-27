@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
-    private CubeManager cm;
+    private VoxelManager cm;
     public Vector3Int index { get; private set; }
 
     public bool lifeCycleUpdated { get; private set; }
@@ -66,7 +66,7 @@ public class Grid : MonoBehaviour
         cm.RemoveFromNeighbour(new Vector3Int(this.index.x, this.index.y, this.index.z));
     }
 
-    public void SetManager(CubeManager _manager, int _x, int _y, int _z)
+    public void SetManager(VoxelManager _manager, int _x, int _y, int _z)
     {
         this.cm = _manager;
         this.index = new Vector3Int(_x, _y, _z);
