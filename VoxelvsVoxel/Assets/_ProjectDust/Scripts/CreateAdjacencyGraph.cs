@@ -20,7 +20,7 @@ public class CreateAdjacencyGraph : MonoBehaviour
         Children = new Dictionary<Vector3, GameObject>();
         CreateDictionary(transform);
         CreateAG();
-        InvokeRepeating("WeakPointFreeWalking", 0f, 0.3f);
+        InvokeRepeating(nameof(WeakPointFreeWalking), 0f, 0.3f);
     }
 
     // Update is called once per frame
@@ -131,7 +131,6 @@ public class CreateAdjacencyGraph : MonoBehaviour
                     print(result[j]);
                 }*/
             }
-
         }
     }
 
@@ -172,27 +171,27 @@ public class CreateAdjacencyGraph : MonoBehaviour
 
     public void WeakPointFreeWalking()
     {
-        GameObject dest = null;
+        GameObject destination = null;
 
         switch (direction)
         {
             case 1:
-                dest = weakPoint.GetComponent<IndividualCube>().frontCube;
+                destination = weakPoint.GetComponent<IndividualCube>().frontCube;
                 break;
             case 2:
-                dest = weakPoint.GetComponent<IndividualCube>().backCube;
+                destination = weakPoint.GetComponent<IndividualCube>().backCube;
                 break;
             case 3:
-                dest = weakPoint.GetComponent<IndividualCube>().leftCube;
+                destination = weakPoint.GetComponent<IndividualCube>().leftCube;
                 break;
             case 4:
-                dest = weakPoint.GetComponent<IndividualCube>().rightCube;
+                destination = weakPoint.GetComponent<IndividualCube>().rightCube;
                 break;
             case 5:
-                dest = weakPoint.GetComponent<IndividualCube>().topCube;
+                destination = weakPoint.GetComponent<IndividualCube>().topCube;
                 break;
             case 6:
-                dest = weakPoint.GetComponent<IndividualCube>().bottomCube;
+                destination = weakPoint.GetComponent<IndividualCube>().bottomCube;
                 break;
 
         }
@@ -201,30 +200,30 @@ public class CreateAdjacencyGraph : MonoBehaviour
         weakPoint.gameObject.tag = "Enemy";
         weakPoint.GetComponent<IndividualCube>().UnsetNeighboursToWeakPoint(2, white);
 
-        if (distance > 0 && dest != null)
+        if (distance > 0 && destination != null)
         {
             /*if (direction == 1 && weakPoint.GetComponent<IndividualCube>().frontCube != null)
             {
                 weakPoint = weakPoint.GetComponent<IndividualCube>().frontCube;
             }*/
-            weakPoint = dest;
+            weakPoint = destination;
 
             distance--;
         }
         else
         {
             distance = Random.Range(3, 8);
-            List<int> neiIdx = weakPoint.GetComponent<IndividualCube>().GetNeighbourIndices();
-            List<GameObject> nei = weakPoint.GetComponent<IndividualCube>().GetNeighbours();
-            int randIndex = Random.Range(0, nei.Count);
-            weakPoint = nei[randIndex];
-            direction = neiIdx[randIndex];
+            List<int> neighbourIndex = weakPoint.GetComponent<IndividualCube>().GetNeighbourIndices();
+            List<GameObject> neighbours = weakPoint.GetComponent<IndividualCube>().GetNeighbours();
+            int randIndex = Random.Range(0, neighbours.Count);
+            weakPoint = neighbours[randIndex];
+            direction = neighbourIndex[randIndex];
 
         }
 
         weakPoint.GetComponent<Renderer>().material = red;
         weakPoint.gameObject.tag = "WeakPoint";
-        weakPoint.GetComponent<IndividualCube>().SetNeighboursToWeakPoint(2 , red);
+        weakPoint.GetComponent<IndividualCube>().SetNeighboursToWeakPoint(2, red);
 
     }
 }
