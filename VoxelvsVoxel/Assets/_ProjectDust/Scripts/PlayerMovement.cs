@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float Speed = 70f;
     public float MouseSensitivity = 3f;
 
-    Rigidbody rigidbody;
+    Rigidbody rigidbody = null;
 
     private void Start()
     {
