@@ -21,7 +21,7 @@ public class ToggleLockOn : MonoBehaviour
     private void Awake()
     {
         myLookAt = GetComponent<LookAt>();
-        player = myLookAt.CurrentTarget();
+        player = myLookAt?.CurrentTarget();
         UI.GetComponent<TargetUI>().target = lTarget[targetsIndex];
 
     }

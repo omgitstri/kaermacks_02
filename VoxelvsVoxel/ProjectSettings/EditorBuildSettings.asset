@@ -6,6 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_VvV/Scene/Voxel.unity
-    guid: 853b0943e1af945478da26a9bc4039ba
-  m_configObjects: {}
+    path: Assets/_VvV/Scene/VoxelTest.unity
+    guid: ab11322eff989ae4f85b24c0ce7f0696
+  - enabled: 1
+    path: Assets/_VvV/Scene/PrototypeV001.unity
+    guid: 7bb189d5908bf904db6b55b5cdde3ece
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 866ff64218aff9b4fa967e0f032dfc2f,
+      type: 2}

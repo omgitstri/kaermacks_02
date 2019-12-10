@@ -26,4 +26,14 @@ public class PlayerAnimation : MonoBehaviour
             //animator.SetTrigger("ComboAttack");
         }
     }
+
+    public void EnableMove()
+    {
+        GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * 500);
+    }
+
+    public void DisableMove()
+    {
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+    }
 }

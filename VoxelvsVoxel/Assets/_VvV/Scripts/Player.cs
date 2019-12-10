@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
         
 
         moveDirection = new Vector3(horizontal, 0, vertical).normalized;
-        transform.Translate(moveDirection * speed * Time.deltaTime, GetComponent<Camera>().transform);
+        transform.Translate(moveDirection * speed * Time.deltaTime, Camera.main.transform);
 
         var pos = transform.position;
         pos.y = 0;
