@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementPD : MonoBehaviour
 {
     public float Speed = 70f;
     public float MouseSensitivity = 3f;

@@ -15,6 +15,8 @@ public class PlayerHitBox : MonoBehaviour
 
             if (other.transform.tag == "Enemy")
             {
+                other.transform.GetComponent<IndividualCube>().DestroyParent();
+                return;
                 //Have fun~ ( ￣ 3￣)y▂ξ
                 //hitInfo.transform.gameObject.GetComponent<IndividualCube>().AddRigidbodyToNeighbours();
                 //print(hitInfo.transform.root.GetComponent<CreateAdjacencyGraph>().weekPoint.GetComponent<IndividualCube>().voxelPosition);
